@@ -8,7 +8,8 @@ module ChromeRemote
       uri = URI.parse(url)
 
       @url = url
-      @io = Socketry::TCP::Socket.new(uri.host, uri.port, timeout: 30)
+      @socket = Socketry::TCP::Socket.connect(uri.host, uri.port, timeout: 30)
+      @io = @socket.to_io
     end
     
     def write(data)
