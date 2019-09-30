@@ -1,4 +1,4 @@
-require "socket"
+require "socketry"
 
 module ChromeRemote
   class Socket
@@ -8,9 +8,9 @@ module ChromeRemote
       uri = URI.parse(url)
 
       @url = url
-      @io = TCPSocket.new(uri.host, uri.port)
+      @io = Socketry::TCP::Socket.new(uri.host, uri.port, timeout: 30)
     end
-
+    
     def write(data)
       io.print data
     end
