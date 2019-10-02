@@ -13,11 +13,11 @@ module ChromeRemote
     end
     
     def write(data)
-      io.print data
+      @socket.write data, timeout: 30
     end
 
     def read
-      io.readpartial(1024, timeout: 30)
+      @socket.readpartial(1024, timeout: 30)
     end
   end
 end
