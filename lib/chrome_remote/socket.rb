@@ -17,7 +17,7 @@ module ChromeRemote
     end
 
     def read
-      io.readpartial(1024)
+      io.readpartial(1024, nil, timeout: 30)
     end
   end
 end
