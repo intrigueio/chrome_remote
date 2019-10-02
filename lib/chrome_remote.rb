@@ -24,6 +24,9 @@ module ChromeRemote
       response = JSON.parse(response)
 
       first_page = response.find {|e| e["type"] == "page"} 
+      
+      raise StandardError.new("Unable to find Chrome Devtools API") unless first_page
+
       # TODO handle no entry found
       first_page["webSocketDebuggerUrl"]
     end
