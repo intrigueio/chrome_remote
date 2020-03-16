@@ -18,7 +18,8 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "websocket-driver", "~> 0.6"
+  spec.add_dependency "websocket-driver", "~> 0.7"
+  spec.add_dependency "socketry"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake", "~> 10.0"
